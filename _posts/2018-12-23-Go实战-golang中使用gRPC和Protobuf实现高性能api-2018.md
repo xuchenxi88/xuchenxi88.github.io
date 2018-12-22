@@ -63,7 +63,7 @@ protoc --go_out=plugins=grpc:. *.proto
 		- c. 注册grpc服务端
 		- d. 为监听端口获取的指令提供响应，执行相应函数
 		
-```go
+```golang
 package main
 
 import (
@@ -130,7 +130,7 @@ func main() {
 	- d. 调用服务端方法创建消费者
 	- e. 调用服务端方法获取刚刚创建的消费者信息
 
-```go
+```golang
 package main
 
 import (
