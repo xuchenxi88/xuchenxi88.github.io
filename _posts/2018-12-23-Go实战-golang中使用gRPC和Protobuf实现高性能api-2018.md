@@ -62,8 +62,9 @@ protoc --go_out=plugins=grpc:. *.proto
 		- b. 创建一个grpc服务
 		- c. 注册grpc服务端
 		- d. 为监听端口获取的指令提供响应，执行相应函数
-		
-```golang
+	
+
+```
 package main
 
 import (
@@ -121,6 +122,7 @@ func main() {
 	s.Serve(lis)
 }
 ```
+
 > 在注册grpc服务端时定义了一个server结构，里面包括一个消费者请求队列，并实现了CreateCustomer和GetCustomers接口
  
  - 3.2 客户端实现
@@ -130,7 +132,8 @@ func main() {
 	- d. 调用服务端方法创建消费者
 	- e. 调用服务端方法获取刚刚创建的消费者信息
 
-```golang
+
+```
 package main
 
 import (
@@ -218,6 +221,7 @@ func main() {
 }
 
 ```
+
 > 客户端同样需要实现GetCustomers和CreateCustomer接口，Create请求需要携带消费者结构，使服务端生成对应数据并储存；Get请求返回一个grpc.ClientStream数据流，可以从中读取数据
 
 执行服务端，程序会一直监听端口，当执行客户端请求时，服务端会进行响应
